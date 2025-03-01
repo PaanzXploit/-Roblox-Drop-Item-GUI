@@ -66,3 +66,14 @@ DropButton.MouseButton1Click:Connect(function()
         UpdateItemList()
     end
 end)
+
+-- Fungsi untuk toggle (minimize/maximize) GUI saat menekan tombol "Q"
+local UserInputService = game:GetService("UserInputService")
+local isMinimized = false
+
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if not gameProcessed and input.KeyCode == Enum.KeyCode.Q then
+        isMinimized = not isMinimized
+        Frame.Visible = not isMinimized
+    end
+end)
